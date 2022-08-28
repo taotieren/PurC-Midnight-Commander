@@ -112,9 +112,9 @@ PURCMC_COMPUTE_SOURCES(purcmc)
 PURCMC_FRAMEWORK(purcmc)
 
 install(TARGETS purcmc DESTINATION "${EXEC_INSTALL_DIR}/")
-install(CODE "file(CREATE_LINK \"${EXEC_INSTALL_DIR}/purcmc\" \"${EXEC_INSTALL_DIR}/purcmcdiff\" COPY_ON_ERROR SYMBOLIC)")
-install(CODE "file(CREATE_LINK \"${EXEC_INSTALL_DIR}/purcmc\" \"${EXEC_INSTALL_DIR}/purcmcview\" COPY_ON_ERROR SYMBOLIC)")
-install(CODE "file(CREATE_LINK \"${EXEC_INSTALL_DIR}/purcmc\" \"${EXEC_INSTALL_DIR}/purcmcedit\" COPY_ON_ERROR SYMBOLIC)")
+install(FILE purcmc DESTINATION "${EXEC_INSTALL_DIR}/" RENAME purcmcdiff)
+install(FILE purcmc DESTINATION "${EXEC_INSTALL_DIR}/" RENAME purcmcview)
+install(FILE purcmc DESTINATION "${EXEC_INSTALL_DIR}/" RENAME purcmcedit)
 
 if (WTF_OS_LINUX)
     PURCMC_EXECUTABLE_DECLARE(consaver)
